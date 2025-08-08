@@ -2,8 +2,8 @@ import { ShoppingCart } from "lucide-react";
 
 let NavBar = ({ cartAmount }) => {
   return (
-    <nav className="h-20 bg-neutral-800 flex items-center justify-between p-6 text-neutral-100 text-3xl">
-      <div>WearBy</div>
+    <nav className="h-20 bg-indigo-900 flex items-center justify-between p-6 text-neutral-100 text-3xl">
+      <div className="cursor-pointer">WearBy</div>
       <div>
         <div className="relative">
           <ShoppingCart className="scale-150 cursor-pointer" />

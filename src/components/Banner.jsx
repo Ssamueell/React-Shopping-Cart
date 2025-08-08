@@ -9,7 +9,7 @@ const Banner = () => {
     >
       <div className="text-2xl text-shadow-2xs">
         <p className="basis-full text-6xl mb-10">Summer sale's promotions</p>
-        <button className="bg-neutral-800 rounded-md px-6 py-2 hover:bg-neutral-700 transition-all cursor-pointer">
+        <button className="bg-indigo-900 rounded-md px-6 py-2 hover:bg-neutral-700 transition-all cursor-pointer">
           CONTACT US
         </button>
       </div>
