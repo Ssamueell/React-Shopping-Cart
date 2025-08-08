@@ -1,12 +1,12 @@
 let NavItems = (props) => {
   console.log("Renderizando NavItems...");
   return (
-    <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 mt-20 overflow-x-hidden">
+    <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-2 mt-20 overflow-x-hidden mx-20">
       {props.items.map((item) => {
         return (
           <li
             key={item.id}
-            className="flex flex-wrap bg-indigo-100 rounded-2xl justify-center hover:scale-110 mt-20 transition-all"
+            className="flex flex-wrap bg-indigo-100 rounded-2xl justify-center hover:scale-110 mt-20 mx-5 transition-all py-2"
           >
             <img
               src={item.image}

@@ -1,19 +1,21 @@
 import { ShoppingCart } from "lucide-react";
 
-let NavBar = ({ cartAmount }) => {
+export default function Navbar({ onOpenCart, cartAmount }) {
   return (
-    <nav className="h-20 bg-indigo-900 flex items-center justify-between p-6 text-neutral-100 text-3xl">
-      <div className="cursor-pointer">WearBy</div>
-      <div>
-        <div className="relative">
-          <ShoppingCart className="scale-150 cursor-pointer" />
-          <div className="absolute top-[-20px] left-5 scale-75 text-neutral-800 bg-neutral-100 rounded-md">
+    <nav className="flex justify-between items-center bg-indigo-800 text-white p-4 h-24">
+      <h1 className="text-3xl font-bold">WearBy</h1>
+      <button
+        onClick={onOpenCart}
+        className="relative"
+        aria-label="Abrir carrinho"
+      >
+        <ShoppingCart />
+        {cartAmount > 0 && (
+          <span className="absolute -top-2 -right-2 bg-red-600 rounded-full text-xs w-5 h-5 flex items-center justify-center">
             {cartAmount}
-          </div>
-        </div>
-      </div>
+          </span>
+        )}
+      </button>
     </nav>
   );
-};
-
-export default NavBar;
+}
