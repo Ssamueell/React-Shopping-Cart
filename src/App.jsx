@@ -9,7 +9,7 @@ function App() {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [items, setItems] = useState([]);
   const [cartAmount, setCartAmount] = useState(0);
-  // const [addedItems, setAddedItems] = useState([]);
+  const [addedItems, setAddedItems] = useState([]);
 
   const openCart = () => setIsCartOpen(true);
   const closeCart = () => setIsCartOpen(false);
@@ -34,15 +34,36 @@ function App() {
     fetchItems();
   }, []);
 
+  let addItems = (itemID) => {
+    const newItems = items.find((item) => item.id === itemID);
+    setAddedItems([...addedItems, newItems]);
+  };
+
+  useEffect(() => {
+    console.log(addedItems);
+  }, [addedItems]);
+
   return (
     <div className="w-screen box-border overflow-x-hidden p-0 m-0 h-screen bg-neutral-100">
-      <NavBar onOpenCart={openCart} cartAmount={cartAmount} />
-      {isCartOpen && <SideBar cartItems={items} onClose={closeCart} />}
-      <Banner />
+      <div>
+        <NavBar onOpenCart={openCart} cartAmount={cartAmount} />
+        <Banner />
+      </div>
+      {
+        <SideBar
+          cartItems={addedItems}
+          onClose={closeCart}
+          isOpen={isCartOpen}
+        />
+      }
       <h1 className="flex flex-wrap justify-center mt-20 text-2xl text-center">
         Find a special selection here, tailored just for you.
       </h1>
-      <NavItems items={items} changeCartAmount={changeCartAmount} />
+      <NavItems
+        items={items}
+        changeCartAmount={changeCartAmount}
+        addItems={addItems}
+      />
     </div>
   );
 }

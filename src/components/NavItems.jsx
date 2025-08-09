@@ -1,8 +1,8 @@
-let NavItems = (props) => {
+let NavItems = ({ items, changeCartAmount, addItems }) => {
   console.log("Renderizando NavItems...");
   return (
     <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-2 mt-20 overflow-x-hidden mx-20">
-      {props.items.map((item) => {
+      {items.map((item) => {
         return (
           <li
             key={item.id}
@@ -17,8 +17,8 @@ let NavItems = (props) => {
             <div className="basis-full text-center">${item.price}</div>
             <button
               onClick={() => {
-                props.changeCartAmount();
-                props.updateProduct();
+                addItems(item.id);
+                changeCartAmount();
               }}
               className="bg-indigo-300 rounded-3xl px-2 py-2 hover:bg-indigo-600 transition-all cursor-pointer mb-2"
             >
